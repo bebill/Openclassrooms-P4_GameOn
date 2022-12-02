@@ -2,6 +2,8 @@
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
   --modal-duration: 0.8s;
+  --color-success: #4BB543;
+  --color-error: #E54858;
 }
 * {
   box-sizing: border-box;
@@ -226,6 +228,54 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
+
+.formData {
+  position: relative;
+}
+
+/* VALIDITY/ERROR */
+
+.formData i {
+  position: absolute;
+  top: 52px;
+  right: 10px;
+  visibility: hidden;
+}
+
+.formData small {
+  position: absolute;
+  font-size: small;
+  font-weight: lighter;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.formData.success .text-control{
+  border: 2px solid var(--color-success);
+}
+
+.formData.success i.fa-check{
+  color: var(--color-success);
+  visibility: visible;
+}
+
+.formData.error .text-control {
+  border: 2px solid var(--color-error);
+}
+
+.formData.error i.fa-xmark {
+  color: var(--color-error);
+  visibility: visible;
+}
+
+.formData.error small {
+  color: var(--color-error);
+  visibility: visible;
+}
+
+
+
 /* 
 input[data-error]::after {
     content: attr(data-error);
