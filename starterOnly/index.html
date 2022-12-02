@@ -65,6 +65,9 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
+            
+            <!-- FORM -->
+            
             <form
               id="reserve"
               name="reserve"
@@ -73,6 +76,7 @@
               onsubmit="return validate();"
             >
           
+              <!-- FIRSTNAME -->
                 <div
                   class="formData">
                   <label>Prénom</label><br>
@@ -82,13 +86,14 @@
                     id="first"
                     name="first"
                     placeholder="Entrez votre prénom"
-                   
                   />
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
                   <small>Message d'erreur</small>
                   <br>
                 </div>
+
+              <!-- LASTNAME -->
                 <div
                   class="formData">
                   <label>Nom</label><br>
@@ -97,15 +102,15 @@
                     type="text"
                     id="last"
                     name="last"
-                    minlength="2"
                     placeholder="Entrez votre nom"
-                   
                   />
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
                   <small>Message d'erreur</small>
                   <br>
                 </div>
+
+              <!-- EMAIL -->
                 <div
                   class="formData">
                   <label>E-mail</label><br>
@@ -115,13 +120,14 @@
                     id="email"
                     name="email"
                     placeholder="xyz@exemple.com"
-                
                   />
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
                   <small>Message d'erreur</small>
                   <br>
                 </div>
+
+              <!-- BIRTHDATE   -->
                 <div
                   class="formData">
                   <label>Date de naissance</label><br>
@@ -130,13 +136,14 @@
                     type="date"
                     id="birthdate"
                     name="birthdate"
-                
                   />
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
                   <small>Message d'erreur</small>
                   <br>
                 </div>
+              
+              <!-- PAST TOURNAMENT PARTICIPATION   -->
                 <div
                   class="formData">
                   <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
@@ -148,11 +155,12 @@
                     placeholder="0"
                     min="0" 
                     max="99"
-               
                     />
                     <small>Message d'erreur</small> 
                     <br>
                 </div>
+              
+              <!-- WISH FOR NEXT TOURNAMENT LOCATION -->
                 <label>A quel tournoi souhaitez-vous participer cette année ?</label><br>
                 <div
                   class="formData">
@@ -237,14 +245,15 @@
                 </br>
                 </div>
 
+                <!-- CHECKBOXES -->
                 <div
                   class="formData">
                   
+                  <!-- REQUIRED T&C -->
                   <input
                     class="checkbox-input"
                     type="checkbox"
                     id="checkbox1"
-                   
                   />
                   <label class="checkbox2-label" for="checkbox1" unchecked required>
                     <span class="checkbox-icon"></span>
@@ -252,7 +261,8 @@
                   </label>
                   <small>Message d'erreur</small>
                   <br>
-
+                  
+                  <!-- OPTIONAL NEWSLETTER -->
                   <input 
                     class="checkbox-input" 
                     type="checkbox" 
@@ -262,9 +272,10 @@
                     <span class="checkbox-icon"></span>
                     Je souhaite être prévenu des prochains évènements.
                   </label>
-                  <br>
-                  
+                  <br>  
                 </div>
+                
+                <!-- SUBMIT BUTTON -->
                 <input
                   id="btn-submit"
                   class="btn-submit"
