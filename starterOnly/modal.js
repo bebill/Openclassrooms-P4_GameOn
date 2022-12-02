@@ -95,6 +95,24 @@ function formSubmit() {
       setSuccess(email);
     }
 
+
+//birthday verify
+    if (birthDayValue === null ) {
+      let message = "Veuillez indiquer votre date de naissance.";
+      setError(birthDay, message); 
+    } else if(birthDayValue > Date.now()) {
+      let message = "Veuillez saisir une date de naissance valide.";
+      setError(birthDay, message);
+    } else if(birthDayValue < birthDay.min) {
+      let message = "Veuillez saisir une date de naissance valide. BITCH.";
+      setError(birthDay, message);
+    }
+    
+    else {
+      setSuccess(birthDay);
+    }
+
+
 //past tournaments participation verify
     if (!pastTournamentVerify(pastTournamentValue)) {
       let message = "Veuillez saisir une valeur numérique.";
@@ -157,3 +175,24 @@ function pastTournamentVerify(pastTournament) {
     /^[0-9]+$/.test(pastTournament)
   );
 }
+
+
+
+
+// set max birthdate input to today
+
+//  let today = Date.now();
+// //  let dd = today.getDate();
+// //  let mm = today.getMonth() + 1; //January is 0!
+// //  let yyyy = today.getFullYear();
+
+// //   if (dd < 10) {
+// //     dd = '0' + dd;
+// //   }
+
+// //   if (mm < 10) {
+// //     mm = '0' + mm;
+// //   } 
+    
+//   today = yyyy + '-' + mm + '-' + dd;
+//  document.getElementById("birthdate").setAttribute("max", today);
