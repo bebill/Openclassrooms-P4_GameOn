@@ -52,7 +52,7 @@ function formSubmit() {
   const lastNameValue = lastName.value.trim();
   const emailValue = email.value.trim();
   const birthDayValue = birthDay.valueAsDate;
-  const pastTournamentValue = pastTournament.value.trim();
+  const pastTournamentValue = pastTournament.valueAsNumber;
   const placeTournamentValue = placeTournament.checked; 
   const consentValue = consent.checked;
 
@@ -71,29 +71,44 @@ function formSubmit() {
     }
   
   //last name verify
-  if (lastNameValue === "" ) {
-    let message = "Veuillez remplir le champ du nom.";
-    setError(lastName, message);
-  } else if (!lastNameValue.match(/^[a-zA-Z-éèà\s]+$/)) {
-    let message = "Le champ du nom doit contenir uniquement des lettres.";
-    setError(lastName, message);
-  } else if (lastNameValue.length < 2) {
-      let message = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+    if (lastNameValue === "" ) {
+      let message = "Veuillez remplir le champ du nom.";
       setError(lastName, message);
-  } else {
-    setSuccess(lastName);
-  }
+    } else if (!lastNameValue.match(/^[a-zA-Z-éèà\s]+$/)) {
+      let message = "Le champ du nom doit contenir uniquement des lettres.";
+      setError(lastName, message);
+    } else if (lastNameValue.length < 2) {
+        let message = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+        setError(lastName, message);
+    } else {
+      setSuccess(lastName);
+    }
 
 //email verify
-if (emailValue === "" ) {
-  let message = "Veuillez remplir le champ de l'adresse mail.";
-  setError(email, message);
-} else if(!emailVerify(emailValue)) {
-  let message = "Veuillez saisir une adresse mail valide.";
-  setError(email, message);
-} else {
-  setSuccess(email);
-}
+    if (emailValue === "" ) {
+      let message = "Veuillez remplir le champ de l'adresse mail.";
+      setError(email, message);
+    } else if(!emailVerify(emailValue)) {
+      let message = "Veuillez saisir une adresse mail valide.";
+      setError(email, message);
+    } else {
+      setSuccess(email);
+    }
+
+//past tournaments participation verify
+    if (!pastTournamentVerify(pastTournamentValue)) {
+      let message = "Veuillez saisir une valeur numérique.";
+      setError(pastTournament, message);
+    } else if (pastTournamentValue > 99) {
+      let message = "Veuillez saisir une valeur inférieure ou égale à 99.";
+      setError(pastTournament, message);
+    } else {
+      setSuccess(pastTournament);
+    }
+
+
+
+
 
 }
 
@@ -128,11 +143,17 @@ function emailVerify(email) {
   /*
   Adresse mail valide : xyz.abc@example.com
   peut/doit contenir : 
-    a-z
-    0-9
-    . - _ @
+    lettres  a-z
+    chiffres 0-9
+    caractères spécifiques . - _ @
   */
   return (
     /^[a-z0-9.-_]+@[a-z0-9.-_]+\.[a-z]+$/.test(email)
+  );
+}
+
+function pastTournamentVerify(pastTournament) {
+  return (
+    /^[0-9]+$/.test(pastTournament)
   );
 }
