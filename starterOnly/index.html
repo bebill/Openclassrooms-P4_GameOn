@@ -73,6 +73,7 @@
               name="reserve"
               action="index.html"
               method="get"
+              novalidate
               onsubmit="return validate();"
             >
           
@@ -86,6 +87,7 @@
                     id="first"
                     name="first"
                     placeholder="Entrez votre prénom"
+                    required
                   />
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
@@ -103,6 +105,7 @@
                     id="last"
                     name="last"
                     placeholder="Entrez votre nom"
+                    required
                   />
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
@@ -120,6 +123,7 @@
                     id="email"
                     name="email"
                     placeholder="xyz@exemple.com"
+                    required
                   />
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
@@ -136,13 +140,15 @@
                     type="date"
                     id="birthdate"
                     name="birthdate"
+                    min="1900-01-01" 
+                    required
                   />
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
                   <small>Message d'erreur</small>
                   <br>
                 </div>
-              
+                <br>
               <!-- PAST TOURNAMENT PARTICIPATION   -->
                 <div
                   class="formData">
@@ -153,13 +159,16 @@
                     id="quantity" 
                     name="quantity" 
                     placeholder="0"
-                    min="0" 
+                    min="0"
                     max="99"
+                    required
                     />
-                    <small>Message d'erreur</small> 
                     <br>
+                    <small>Message d'erreur</small> 
+                  <br>
                 </div>
-              
+              <br>
+             
               <!-- WISH FOR NEXT TOURNAMENT LOCATION -->
                 <label>A quel tournoi souhaitez-vous participer cette année ?</label><br>
                 <div
