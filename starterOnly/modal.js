@@ -84,23 +84,55 @@ function formSubmit() {
     setSuccess(lastName);
   }
 
-  } 
+//email verify
+if (emailValue === "" ) {
+  let message = "Veuillez remplir le champ de l'adresse mail.";
+  setError(email, message);
+} else if(!emailVerify(emailValue)) {
+  let message = "Veuillez saisir une adresse mail valide.";
+  setError(email, message);
+} else {
+  setSuccess(email);
+}
+
+}
 
 
 
+
+
+
+
+
+
+
+
+
+//fonction message erreur
 function setError(elem,message) {
   const formData = elem.parentElement;
   const error = formData.querySelector("small");
-
   //ajout du message d'erreur
   error.innerText = message;
-
   //ajout class erreur
   formData.className = "formData error";
 }
 
-
+//fonction succès
 function setSuccess(elem) {
   const formData = elem.parentElement;
   formData.className = "formData success";
+}
+
+function emailVerify(email) {
+  /*
+  Adresse mail valide : xyz.abc@example.com
+  peut/doit contenir : 
+    a-z
+    0-9
+    . - _ @
+  */
+  return (
+    /^[a-z0-9.-_]+@[a-z0-9.-_]+\.[a-z]+$/.test(email)
+  );
 }
