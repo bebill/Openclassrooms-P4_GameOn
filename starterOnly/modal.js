@@ -19,9 +19,11 @@ const firstName = document.querySelector("#first");
 const lastName = document.querySelector("#last");
 const email = document.querySelector("#email");
 const birthDay = document.querySelector("#birthdate");
+
 const pastTournament = document.querySelector("#quantity");
 const placeTournament = document.querySelectorAll(".location");
 const consent = document.querySelector("#checkbox1");
+
 
 
 // launch modal event
@@ -103,10 +105,10 @@ function formSubmit() {
     } else if(birthDayValue > Date.now()) {
       let message = "Veuillez saisir une date de naissance valide.";
       setError(birthDay, message);
-    } else if(birthDayValue < birthDay.min) {
-      let message = "Veuillez saisir une date de naissance valide. BITCH.";
+    } else if(birthDayValue < Date.parse(birthDay.min)) {
+      let message = "La date saisie est trop ancienne.";
       setError(birthDay, message);
-    }
+    } 
     
     else {
       setSuccess(birthDay);
@@ -158,15 +160,10 @@ function setSuccess(elem) {
 }
 
 function emailVerify(email) {
-  /*
-  Adresse mail valide : xyz.abc@example.com
-  peut/doit contenir : 
-    lettres  a-z
-    chiffres 0-9
-    caractères spécifiques . - _ @
-  */
+  /*  Adresse mail valide : xyz.abc@example.com
+      Format : "lettres/chiffres._-"  + "@" + "lettres/chiffres" + "." + "lettres"   */
   return (
-    /^[a-z0-9.-_]+@[a-z0-9.-_]+\.[a-z]+$/.test(email)
+    /^[a-z0-9.-_]+@[a-z0-9]+\.[a-z]+$/.test(email)
   );
 }
 
@@ -178,21 +175,20 @@ function pastTournamentVerify(pastTournament) {
 
 
 
-
 // set max birthdate input to today
 
 //  let today = Date.now();
-// //  let dd = today.getDate();
-// //  let mm = today.getMonth() + 1; //January is 0!
-// //  let yyyy = today.getFullYear();
+//  let dd = today.getDate();
+//  let mm = today.getMonth() + 1; //January is 0!
+//  let yyyy = today.getFullYear();
 
-// //   if (dd < 10) {
-// //     dd = '0' + dd;
-// //   }
+//   if (dd < 10) {
+//     dd = '0' + dd;
+//   }
 
-// //   if (mm < 10) {
-// //     mm = '0' + mm;
-// //   } 
+//   if (mm < 10) {
+//     mm = '0' + mm;
+//   } 
     
 //   today = yyyy + '-' + mm + '-' + dd;
 //  document.getElementById("birthdate").setAttribute("max", today);
