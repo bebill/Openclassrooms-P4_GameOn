@@ -58,19 +58,31 @@ function formSubmit() {
 
   // first name verify
     if (firstNameValue === "" ) {
-      let message = "Veuillez remplir le champ du nom.";
+      let message = "Veuillez remplir le champ du prénom.";
       setError(firstName, message);
-    } else if (!firstNameValue.match(/^[a-zA-Z-\s]+$/)) {
-      let message = "Le champ du nom doit contenir uniquement des lettres.";
+    } else if (!firstNameValue.match(/^[a-zA-Z-éèà\s]+$/)) {
+      let message = "Le champ du prénom doit contenir uniquement des lettres.";
       setError(firstName, message);
     } else if (firstNameValue.length < 2) {
-        let message = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+        let message = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
         setError(firstName, message);
     } else {
       setSuccess(firstName);
     }
   
   //last name verify
+  if (lastNameValue === "" ) {
+    let message = "Veuillez remplir le champ du nom.";
+    setError(lastName, message);
+  } else if (!lastNameValue.match(/^[a-zA-Z-éèà\s]+$/)) {
+    let message = "Le champ du nom doit contenir uniquement des lettres.";
+    setError(lastName, message);
+  } else if (lastNameValue.length < 2) {
+      let message = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+      setError(lastName, message);
+  } else {
+    setSuccess(lastName);
+  }
 
   } 
 
