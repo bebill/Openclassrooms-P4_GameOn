@@ -23,7 +23,6 @@ const pastTournament = document.querySelector("#quantity");
 const tournamentPlace = document.querySelectorAll('input[name="location"]');
 const radioValidation = document.querySelector(".radioValidation");
 const consent = document.querySelector("#checkbox1");
-
 const submitForm = document.querySelector('.btn-submit');
 
 
@@ -44,14 +43,12 @@ function hideModal() {
   modalbg.style.display = "none";
 }
 
-//Quand on submit, il verifie toutes les erreurs
+//form validation
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   formErrors();
 
-  
-  if (
-   
+  if (   
     validFirst === true &&
     validLast === true &&
     validMail === true &&
@@ -66,6 +63,7 @@ form.addEventListener("submit", (e) => {
   }
 })
 
+// check errors
 function formErrors() {
   let isValid = true;
 
@@ -96,14 +94,14 @@ function formErrors() {
 
 
 
-
-let validFirst = false;
-let validLast = false;
-let validMail = false;
-let validBirthday = false;
-let validQuantity = false;
-let validCity = false;
-let validConditions = false;
+// validation conditions : return to 'true' when ok
+  let validFirst = false;
+  let validLast = false;
+  let validMail = false;
+  let validBirthday = false;
+  let validQuantity = false;
+  let validCity = false;
+  let validConditions = false;
 
 
 
