@@ -20,6 +20,7 @@ const email = document.querySelector("#email");
 const birthDay = document.querySelector("#birthdate");
 const pastTournament = document.querySelector("#quantity");
 const tournamentPlace = document.querySelectorAll('input[name="location"]');
+const radioValidation = document.querySelector(".radioValidation");
 const consent = document.querySelector("#checkbox1");
 
 const submitForm = document.querySelector('.btn-submit');
@@ -67,12 +68,12 @@ function formSubmit() {
   if (!pastTournamentVerify()) {
     isValid = false;
   }
-
-
-//   const tournamentPlaceValue = tournamentPlace.checked;
-//   const consentValue = consent.checked;
-
-
+  if (!tournamentPlaceVerify()) {
+    isValid = false;
+  }
+  if (!consentVerify()) {
+    isValid - false;
+  }
 
 }
 
@@ -89,21 +90,24 @@ function formSubmit() {
 
 
 
-//fonction message erreur
+// error settings
 function setError(elem,message) {
   const formData = elem.parentElement;
   const error = formData.querySelector("small");
-  //ajout du message d'erreur
+  //set message
   error.innerText = message;
-  //ajout class erreur
+  //change class to error
   formData.className = "formData error";
 }
 
-//fonction message succès
+// success settings
 function setSuccess(elem) {
   const formData = elem.parentElement;
+  //change class to success
   formData.className = "formData success";
 }
+
+
 
 // first name verify
 function firstNameVerify() {
@@ -141,7 +145,6 @@ function lastNameVerify() {
       setSuccess(lastName);
   }
 }
-
 
 
 // email verify
@@ -228,3 +231,21 @@ function pastTournamentRegex(pastTournament) {
 
 
 // tournament location verify
+function tournamentPlaceVerify() {
+  
+  let tournamentPlaceValue = false;
+ for(let i=0; i < tournamentPlace.length; i++) {
+  if(tournamentPlace[i].checked === true) {
+    tournamentPlaceValue = true;
+    setSuccess(radioValidation);
+   
+  }
+ }
+ if(!tournamentPlaceValue) {
+  let message = "Veuillez selectionner une option";
+  setError(radioValidation, message);
+ }
+}
+
+
+
