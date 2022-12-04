@@ -499,7 +499,7 @@ footer {
 
 /* MEDIA QUERIES */
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     .hero-section {
       display: block;
       box-shadow: unset;
@@ -536,11 +536,7 @@ footer {
       margin-top: 50px;
       text-align: center;
     }
-  }
 
-
-
-  @media screen and (max-width: 768px) {
     .topnav a {display: none;}
     .topnav a.icon {
       float: right;
@@ -569,4 +565,28 @@ footer {
       display: block;
       margin-top: 0px
     }
+
+    main {
+      padding: 0;
+    }
+
+
+  .hero-content {
+    min-width: 0;
+    padding: 0;
+
   }
+
+  .hero-headline {
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .hero-text {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .formData.error small {
+    font-size: 11px;
+  }
+}
