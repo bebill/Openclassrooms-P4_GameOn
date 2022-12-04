@@ -61,7 +61,7 @@ form.addEventListener("submit", (e) => {
     validConditions === true
   ) {
    form.submit();
-   alert("finally");
+   alert("Merci ! Votre réservation a été reçue.");
 
   }
 })
