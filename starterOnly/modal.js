@@ -247,5 +247,16 @@ function tournamentPlaceVerify() {
  }
 }
 
+//consent verify
+function consentVerify() {
+  const consentValue = consent.checked;
+
+  if (consentValue === false) {
+    let message = "Veuillez accepter les termes et conditions"; 
+    setError(consent, message);
+  } else {
+    setSuccess(consent);
+  }
+}
 
 
