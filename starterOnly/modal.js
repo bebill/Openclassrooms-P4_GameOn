@@ -1,3 +1,4 @@
+//navigation
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -44,15 +45,30 @@ function hideModal() {
 }
 
 //Quand on submit, il verifie toutes les erreurs
-form.addEventListener("submit", e => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
+  formErrors();
 
-  formSubmit();
+  
+  if (
+   
+    validFirst === true &&
+    validLast === true &&
+    validMail === true &&
+    validBirthday === true &&
+    validQuantity === true &&
+    validCity === true &&
+    validConditions === true
+  ) {
+   form.submit();
+   alert("finally");
+
+  }
 })
 
-function formSubmit() {
-  let isValid = true ;
-  
+function formErrors() {
+  let isValid = true;
+
   if (!firstNameVerify()) {
     isValid = false;
   } 
@@ -72,21 +88,22 @@ function formSubmit() {
     isValid = false;
   }
   if (!consentVerify()) {
-    isValid - false;
+    isValid = false;
   }
-
+  
 }
 
 
 
 
 
-
-
-
-
-
-
+let validFirst = false;
+let validLast = false;
+let validMail = false;
+let validBirthday = false;
+let validQuantity = false;
+let validCity = false;
+let validConditions = false;
 
 
 
@@ -116,7 +133,7 @@ function firstNameVerify() {
   if (firstNameValue === "" ) {
     let message = "Veuillez remplir le champ du prénom.";
     setError(firstName, message);
-  } else if (!firstNameValue.match(/^[a-zA-Z-éèà\s]+$/)) {
+  } else if (!firstNameValue.match(/^[a-zA-Z-àáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s]+$/)) {
       let message = "Le champ du prénom doit contenir uniquement des lettres.";
       setError(firstName, message);
   } else if (firstNameValue.length < 2) {
@@ -124,6 +141,7 @@ function firstNameVerify() {
       setError(firstName, message);
   } else {
       setSuccess(firstName);
+      return validFirst = true;
   }
 }
 
@@ -135,7 +153,7 @@ function lastNameVerify() {
   if (lastNameValue === "" ) {
     let message = "Veuillez remplir le champ du nom.";
     setError(lastName, message);
-  } else if (!lastNameValue.match(/^[a-zA-Z-éèà\s]+$/)) {
+  } else if (!lastNameValue.match(/^[a-zA-Z-àáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s]+$/)) {
       let message = "Le champ du nom doit contenir uniquement des lettres.";
       setError(lastName, message);
   } else if (lastNameValue.length < 2) {
@@ -143,6 +161,7 @@ function lastNameVerify() {
       setError(lastName, message);
   } else {
       setSuccess(lastName);
+      return validLast = true;
   }
 }
 
@@ -159,6 +178,7 @@ function emailVerify() {
       setError(email, message);
   } else {
       setSuccess(email);
+      return validMail = true;
   }
 }
 
@@ -186,6 +206,7 @@ function birthDayVerify() {
       setError(birthDay, message);
   } else {
       setSuccess(birthDay);
+      return validBirthday = true;
   }
 }
 
@@ -220,6 +241,7 @@ function pastTournamentVerify() {
       setError(pastTournament, message);
   } else {
       setSuccess(pastTournament);
+      return validQuantity = true;
   }
 }
 
@@ -237,7 +259,7 @@ function tournamentPlaceVerify() {
  for(let i=0; i < tournamentPlace.length; i++) {
   if(tournamentPlace[i].checked === true) {
     tournamentPlaceValue = true;
-    setSuccess(radioValidation);
+    return validCity = true;
    
   }
  }
@@ -255,7 +277,7 @@ function consentVerify() {
     let message = "Veuillez accepter les termes et conditions"; 
     setError(consent, message);
   } else {
-    setSuccess(consent);
+    return validConditions = true;
   }
 }
 
