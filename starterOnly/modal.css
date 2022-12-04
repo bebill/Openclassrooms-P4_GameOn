@@ -168,12 +168,13 @@ label {
   font-size: 17px;
   font-weight: normal;
   display: inline-block;
-  margin-bottom: 11px;
+  margin: 10px 0;
 }
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
   outline: none;
+
 }
 .text-control {
   margin: 0;
@@ -186,14 +187,15 @@ input {
 
 .formData {
   position: relative;
+  margin-bottom: 20px;
 }
 
 /* VALIDITY/ERROR */
 
 .formData i {
   position: absolute;
-  top: 52px;
-  right: 10px;
+  top: 55px;
+  right: -25px;
   visibility: hidden;
 }
 
@@ -201,7 +203,7 @@ input {
   position: absolute;
   font-size: small;
   font-weight: lighter;
-  bottom: 0;
+  bottom: -20px;
   left: 0;
   visibility: hidden;
 }
@@ -565,6 +567,6 @@ footer {
     .topnav a.icon {
       float: right;
       display: block;
-      margin-top: -15px;
+      margin-top: 0px
     }
   }
