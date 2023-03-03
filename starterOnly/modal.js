@@ -25,6 +25,10 @@ const radioValidation = document.querySelector(".radioValidation");
 const consent = document.querySelector("#checkbox1");
 const submitForm = document.querySelector('.btn-submit');
 
+const modalSubmit = document.getElementsByClassName('container-confirmation-submit');
+const closeModalSubmit = document.getElementsByClassName('close-modal-submit');
+const closeBtnConfirmation = document.getElementById('close-btn-confirmation');
+
 
 
 
@@ -43,6 +47,26 @@ function hideModal() {
   modalbg.style.display = "none";
 }
 
+
+
+// hide modal after confirmation event  
+closeBtnConfirmation.addEventListener('click', closeSubmit);
+// hide modal after confirmation form  
+function closeSubmit() {
+  modalSubmit[0].style.display = 'none';
+}
+
+
+// close confirmation modal event
+closeModalSubmit[0].addEventListener('click', closeSubmit);
+// close confirmation modal form
+function displayModalSubmit() {
+  modalbg.style.display = 'none';
+  modalSubmit[0].style.display = 'block';
+}
+
+
+
 //form validation
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -57,9 +81,8 @@ form.addEventListener("submit", (e) => {
     validCity === true &&
     validConditions === true
   ) {
-   form.submit();
-   alert("Merci ! Votre réservation a été reçue.");
-
+    displayModalSubmit();
+    form.reset();
   }
 })
 
