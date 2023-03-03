@@ -21,23 +21,24 @@
   </head>
 
   <body>
-    <div class="topnav" id="myTopnav">
-      <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
-    </div>
-    <div class="main-navbar">
-      
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    </div>
-  </div>
+    <header>
+      <nav class="topnav" id="myTopnav">
+        <div class="header-logo">
+          <img alt="logo" src="Logo.png" width="auto" height="auto" />
+        </div>
+        <div class="main-navbar">
+          <a href="#" class="active"><span>Accueil</span></a>
+          <a href="#"><span>Détails de l'évènement</span></a>
+          <a href="#"><span>À propos</span></a>
+          <a href="#"><span>Contact</span></a>
+          <a href="#"><span>Évènements passés</span></a>
+          <a href="javascript:void(0);" class="icon" onclick="editNav()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+      </nav>
+    </header>
+
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -61,6 +62,7 @@
         </button>
       </div>
 
+      <!-- MODAL -->
       <div class="bground">
         <div class="content">
           <span class="close"></span>
@@ -74,14 +76,10 @@
               action="index.html"
               method="get"
               novalidate
-              
-              
             >
-          <!-- onsubmit="return validate('Merci');" -->
-          
+
               <!-- FIRSTNAME -->
-                <div
-                  class="formData">
+                <div class="formData">
                   <label for="first">Prénom</label>
                   <br/>
                   <input
@@ -95,12 +93,10 @@
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
                   <small>Message d'erreur</small>
-                  
                 </div>
 
               <!-- LASTNAME -->
-                <div
-                  class="formData">
+                <div class="formData">
                   <label for="last">Nom</label>
                   <br/>
                   <input
@@ -114,12 +110,10 @@
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
                   <small>Message d'erreur</small>
-                
                 </div>
 
               <!-- EMAIL -->
-                <div
-                  class="formData">
+                <div class="formData">
                   <label for="email">E-mail</label>
                   <br/>
                   <input
@@ -133,12 +127,10 @@
                   <i class="fa-solid fa-check"></i>
                   <i class="fa-solid fa-xmark"></i>
                   <small>Message d'erreur</small>
-                  
                 </div>
 
               <!-- BIRTHDATE   -->
-                <div
-                  class="formData">
+                <div class="formData">
                   <label for="birthdate">Date de naissance</label>
                   <br/>
                   <input
@@ -169,7 +161,6 @@
                     max="99"
                     required
                     />
-          
                     <small>Message d'erreur</small> 
                 </div>
          
@@ -178,8 +169,7 @@
               <label>A quel tournoi souhaitez-vous participer cette année ?</label> 
               <br/>
                   
-              <div
-                  class="formData">  
+              <div class="formData">  
 
                   <div class="radioValidation">
                     <small>Message d'erreur</small>
@@ -198,7 +188,6 @@
                     New York
                   </label>
 
-
                   <input
                     class="checkbox-input"
                     type="radio"
@@ -210,8 +199,7 @@
                   <label class="checkbox-label" for="location2">
                     <span class="checkbox-icon"></span>
                     San Francisco
-                  </label>
-                  
+                  </label>      
                   
                   <input
                     class="checkbox-input"
@@ -224,8 +212,7 @@
                   <label class="checkbox-label" for="location3">
                     <span class="checkbox-icon"></span>
                     Seattle
-                  </label>
-                  
+                  </label>                 
                   
                   <input
                     class="checkbox-input"
@@ -238,8 +225,7 @@
                   <label class="checkbox-label" for="location4">
                     <span class="checkbox-icon"></span>
                     Chicago
-                  </label>
-                  
+                  </label>                 
                   
                   <input
                     class="checkbox-input"
@@ -252,8 +238,7 @@
                   <label class="checkbox-label" for="location5">
                     <span class="checkbox-icon"></span>
                     Boston
-                  </label>
-                  
+                  </label>                  
                   
                   <input
                     class="checkbox-input"
@@ -267,12 +252,12 @@
                     <span class="checkbox-icon"></span>
                     Portland
                   </label>
-                </div>
+
+              </div>
             
                 
                 <!-- CHECKBOXES -->
-                <div
-                  class="formData">
+                <div class="formData">
                   
                   <!-- REQUIRED T&C -->
                   <input
@@ -284,7 +269,6 @@
                     <span class="checkbox-icon"></span>
                     J'ai lu et accepté les conditions d'utilisation.
                   </label>
-  
                   <small>Message d'erreur</small>
                 
                   
@@ -298,6 +282,7 @@
                     <span class="checkbox-icon"></span>
                     Je souhaite être prévenu des prochains évènements.
                   </label>
+
                 </div>
                 <br/>
              
@@ -307,13 +292,26 @@
                   class="btn-submit"
                   type="submit"
                   class="button"
-                  value="C'est parti"
+                  value="C'est parti" 
                 />
      
             </form>
+
           </div>
         </div>
       </div>
+
+     
+      <!-- CONFIRMATION MODAL -->
+      <div class="container-confirmation-submit">
+        <div class="submitted-form">
+          <span class="close-modal-submit"></span>
+          <p> Merci ! Votre réservation a été reçue.</p>
+          <button id="close-btn-confirmation"> Fermer
+          </button>
+        </div>
+      </div>
+
     </main>
     <footer>
       <p class="copyrights">
