@@ -11,7 +11,7 @@
   padding: 0;
 }
 
-/* LANDING PAGE */
+/* Landing */
 
   body {
     margin: 0;
@@ -37,7 +37,7 @@
     float: left;
   }
 
-  /* NAVBAR */
+  /* Navbar */
     .topnav {
       overflow: hidden;
       margin: 3.5%;
@@ -190,7 +190,7 @@ input {
   margin-bottom: 20px;
 }
 
-/* VALIDITY/ERROR */
+/* Validity/Error */
 
 .formData i {
   position: absolute;
@@ -486,6 +486,81 @@ footer {
   margin: 0 20px;
 }
 
+/* Confirmation Modal */
+.container-confirmation-submit {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
+.submitted-form {
+  margin: 5% auto;
+  width: 100%;
+  height: 80vh;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+
+.close-modal-submit {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
+.close-modal-submit:before,
+.close-modal-submit:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.close-modal-submit:before {
+  transform: rotate(45deg);
+}
+
+.close-modal-submit:after {
+  transform: rotate(-45deg);
+}
+
+#close-btn-confirmation {
+  background: #fe142f;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 12px 82px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  position: absolute;
+  bottom: 15px;
+}
 
 @keyframes modalopen {
   from {
@@ -586,6 +661,14 @@ footer {
     text-align: center;
     margin-top: 20px;
   }
+
+  .content, 
+  .submitted-form {
+    margin: auto;
+    border-radius: 0px;
+    height: 100%;
+  }
+
   .formData.error small {
     font-size: 11px;
   }
