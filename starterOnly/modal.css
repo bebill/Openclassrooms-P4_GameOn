@@ -192,12 +192,6 @@ input {
 
 /* Validity/Error */
 
-.formData i {
-  position: absolute;
-  top: 55px;
-  right: -25px;
-  visibility: hidden;
-}
 
 .formData small {
   position: absolute;
@@ -212,25 +206,16 @@ input {
   border: 2px solid var(--color-success);
 }
 
-.formData.success i.fa-check{
-  color: var(--color-success);
-  visibility: visible;
-}
 
 .formData.error .text-control {
   border: 2px solid var(--color-error);
 }
 
-.formData.error i.fa-xmark {
-  color: var(--color-error);
-  visibility: visible;
-}
 
 .formData.error small {
   color: var(--color-error);
   visibility: visible;
 }
-
 
 
 /*

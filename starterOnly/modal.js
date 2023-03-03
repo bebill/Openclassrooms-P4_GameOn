@@ -54,6 +54,7 @@ closeBtnConfirmation.addEventListener('click', closeSubmit);
 // hide modal after confirmation form  
 function closeSubmit() {
   modalSubmit[0].style.display = 'none';
+  form.submit();
 }
 
 
@@ -64,8 +65,6 @@ function displayModalSubmit() {
   modalbg.style.display = 'none';
   modalSubmit[0].style.display = 'block';
 }
-
-
 
 //form validation
 form.addEventListener("submit", (e) => {
@@ -82,8 +81,7 @@ form.addEventListener("submit", (e) => {
     validConditions === true
   ) {
     displayModalSubmit();
-    form.reset();
-  }
+  } 
 })
 
 // check errors
