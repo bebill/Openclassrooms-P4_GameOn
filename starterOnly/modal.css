@@ -527,6 +527,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 
 }
 
@@ -695,6 +696,7 @@ footer {
     margin: auto;
     border-radius: 0px;
     height: 100%;
+    overflow: scroll;
   }
 
   .formData.error small {
